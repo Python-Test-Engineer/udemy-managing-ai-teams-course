@@ -3,3 +3,5 @@
   needed just serving up routes to connect to the database and return records 
 
   Save in _plans/app.md
+
+  THEN create it.
