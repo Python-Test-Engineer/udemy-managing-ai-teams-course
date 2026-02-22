@@ -1,0 +1,899 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dr. Javed Khan — Consultant Oncologist</title>
+  <style>
+    /* ── Theme tokens ── */
+    :root[data-theme="dark"] {
+      --bg:           #0d0d0d;
+      --bg-nav:       #111111;
+      --bg-card:      #1a1a1a;
+      --bg-card-hover:#212121;
+      --bg-hero:      #0d0d0d;
+      --border:       #2a2a2a;
+      --text-primary: #f0f0f0;
+      --text-secondary:#a0a0a0;
+      --text-muted:   #666;
+      --accent:       #e07b39;
+      --accent-soft:  rgba(224,123,57,0.12);
+      --link:         #6b9fff;
+      --tag-bg:       #1f2937;
+      --tag-text:     #93c5fd;
+      --divider:      #222;
+      --shadow:       0 2px 12px rgba(0,0,0,0.5);
+    }
+    :root[data-theme="light"] {
+      --bg:           #ffffff;
+      --bg-nav:       #ffffff;
+      --bg-card:      #f9fafb;
+      --bg-card-hover:#f3f4f6;
+      --bg-hero:      #fafafa;
+      --border:       #e5e7eb;
+      --text-primary: #111827;
+      --text-secondary:#4b5563;
+      --text-muted:   #9ca3af;
+      --accent:       #c2601c;
+      --accent-soft:  rgba(194,96,28,0.08);
+      --link:         #2563eb;
+      --tag-bg:       #dbeafe;
+      --tag-text:     #1d4ed8;
+      --divider:      #e5e7eb;
+      --shadow:       0 2px 12px rgba(0,0,0,0.08);
+    }
+
+    /* ── Reset & base ── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Inter, sans-serif;
+      background: var(--bg);
+      color: var(--text-primary);
+      font-size: 15px;
+      line-height: 1.6;
+      transition: background 0.25s, color 0.25s;
+    }
+    a { color: var(--link); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    /* ── Navigation ── */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: var(--bg-nav);
+      border-bottom: 1px solid var(--border);
+      padding: 0 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 56px;
+      gap: 1.5rem;
+    }
+    .nav-brand {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      font-weight: 700;
+      font-size: 0.95rem;
+      color: var(--text-primary);
+      white-space: nowrap;
+    }
+    .nav-brand .dot {
+      width: 8px; height: 8px;
+      background: var(--accent);
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+    .nav-links {
+      display: flex;
+      gap: 0.25rem;
+      list-style: none;
+      flex: 1;
+      justify-content: center;
+    }
+    .nav-links a {
+      color: var(--text-secondary);
+      font-size: 0.875rem;
+      padding: 0.35rem 0.75rem;
+      border-radius: 6px;
+      transition: background 0.15s, color 0.15s;
+    }
+    .nav-links a:hover {
+      color: var(--text-primary);
+      background: var(--bg-card);
+      text-decoration: none;
+    }
+    .nav-right {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+    /* Theme toggle */
+    .theme-toggle {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      cursor: pointer;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 0.3rem 0.75rem;
+      font-size: 0.8rem;
+      color: var(--text-secondary);
+      transition: background 0.15s;
+      user-select: none;
+    }
+    .theme-toggle:hover { background: var(--bg-card-hover); color: var(--text-primary); }
+    .btn-contact {
+      background: var(--accent);
+      color: #fff;
+      border: none;
+      border-radius: 6px;
+      padding: 0.4rem 1rem;
+      font-size: 0.85rem;
+      font-weight: 600;
+      cursor: pointer;
+      text-decoration: none;
+      transition: opacity 0.15s;
+    }
+    .btn-contact:hover { opacity: 0.85; text-decoration: none; color: #fff; }
+
+    /* ── Layout ── */
+    .container { max-width: 1080px; margin: 0 auto; padding: 0 2rem; }
+
+    /* ── Hero ── */
+    .hero {
+      background: var(--bg-hero);
+      border-bottom: 1px solid var(--divider);
+      padding: 5rem 2rem 4rem;
+      text-align: center;
+    }
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: var(--accent-soft);
+      border: 1px solid var(--accent);
+      color: var(--accent);
+      border-radius: 20px;
+      padding: 0.3rem 0.9rem;
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      margin-bottom: 1.5rem;
+    }
+    .hero h1 {
+      font-size: clamp(2rem, 5vw, 3.2rem);
+      font-weight: 800;
+      line-height: 1.15;
+      letter-spacing: -0.02em;
+      color: var(--accent);
+      margin-bottom: 0.5rem;
+    }
+    .hero-title {
+      font-size: 1.1rem;
+      color: var(--text-secondary);
+      margin-bottom: 1rem;
+    }
+    .hero-credentials {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 0.5rem;
+      margin-bottom: 1.75rem;
+    }
+    .credential-tag {
+      background: var(--tag-bg);
+      color: var(--tag-text);
+      border-radius: 5px;
+      padding: 0.25rem 0.65rem;
+      font-size: 0.78rem;
+      font-weight: 600;
+    }
+    .hero-desc {
+      max-width: 600px;
+      margin: 0 auto 2rem;
+      color: var(--text-secondary);
+      font-size: 1rem;
+      line-height: 1.7;
+    }
+    .hero-actions {
+      display: flex;
+      justify-content: center;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+    }
+    .btn-primary {
+      background: var(--accent);
+      color: #fff;
+      padding: 0.65rem 1.5rem;
+      border-radius: 8px;
+      font-weight: 700;
+      font-size: 0.9rem;
+      transition: opacity 0.15s;
+    }
+    .btn-primary:hover { opacity: 0.85; text-decoration: none; color: #fff; }
+    .btn-secondary {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      color: var(--text-primary);
+      padding: 0.65rem 1.5rem;
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: 0.9rem;
+      transition: background 0.15s;
+    }
+    .btn-secondary:hover { background: var(--bg-card-hover); text-decoration: none; color: var(--text-primary); }
+
+    /* ── Stat bar ── */
+    .stat-bar {
+      display: flex;
+      border-top: 1px solid var(--divider);
+      border-bottom: 1px solid var(--divider);
+    }
+    .stat-item {
+      flex: 1;
+      padding: 1.5rem 1rem;
+      text-align: center;
+      border-right: 1px solid var(--divider);
+    }
+    .stat-item:last-child { border-right: none; }
+    .stat-num {
+      font-size: 1.75rem;
+      font-weight: 800;
+      color: var(--accent);
+      display: block;
+    }
+    .stat-label {
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    /* ── Sections ── */
+    section {
+      padding: 4rem 0;
+      border-bottom: 1px solid var(--divider);
+    }
+    section:last-of-type { border-bottom: none; }
+    .section-header {
+      margin-bottom: 2.5rem;
+    }
+    .section-label {
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 0.5rem;
+    }
+    .section-header h2 {
+      font-size: 1.65rem;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      color: var(--text-primary);
+      margin-bottom: 0.5rem;
+    }
+    .section-header p {
+      color: var(--text-secondary);
+      max-width: 560px;
+    }
+
+    /* ── Card grid ── */
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 1px;
+      background: var(--border);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      overflow: hidden;
+    }
+    .card {
+      background: var(--bg-card);
+      padding: 1.5rem;
+      transition: background 0.15s;
+    }
+    .card:hover { background: var(--bg-card-hover); }
+    .card-icon {
+      font-size: 1.5rem;
+      margin-bottom: 0.85rem;
+      display: block;
+    }
+    .card h3 {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--text-primary);
+      margin-bottom: 0.4rem;
+    }
+    .card p {
+      font-size: 0.855rem;
+      color: var(--text-secondary);
+      line-height: 1.6;
+    }
+
+    /* ── About ── */
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 2fr;
+      gap: 3rem;
+      align-items: start;
+    }
+    .about-photo {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      aspect-ratio: 3/4;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      color: var(--text-muted);
+      font-size: 4rem;
+    }
+    .about-photo span { font-size: 0.8rem; }
+    .about-text h2 {
+      font-size: 1.65rem;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      color: var(--text-primary);
+      margin-bottom: 1rem;
+    }
+    .about-text p {
+      color: var(--text-secondary);
+      margin-bottom: 1rem;
+      line-height: 1.75;
+    }
+    .about-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-top: 1.5rem;
+    }
+    .tag {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      color: var(--text-secondary);
+      border-radius: 5px;
+      padding: 0.3rem 0.7rem;
+      font-size: 0.78rem;
+    }
+
+    /* ── Timeline (experience) ── */
+    .timeline { position: relative; padding-left: 1.5rem; }
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 0; top: 6px; bottom: 6px;
+      width: 2px;
+      background: var(--border);
+    }
+    .timeline-item {
+      position: relative;
+      padding: 0 0 2rem 1.5rem;
+    }
+    .timeline-item:last-child { padding-bottom: 0; }
+    .timeline-item::before {
+      content: '';
+      position: absolute;
+      left: -5px; top: 6px;
+      width: 10px; height: 10px;
+      border-radius: 50%;
+      background: var(--accent);
+      border: 2px solid var(--bg);
+    }
+    .timeline-year {
+      font-size: 0.75rem;
+      color: var(--accent);
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      margin-bottom: 0.2rem;
+    }
+    .timeline-item h3 {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--text-primary);
+      margin-bottom: 0.15rem;
+    }
+    .timeline-item .org {
+      font-size: 0.83rem;
+      color: var(--text-secondary);
+      margin-bottom: 0.4rem;
+    }
+    .timeline-item p {
+      font-size: 0.83rem;
+      color: var(--text-muted);
+    }
+
+    /* ── Publications ── */
+    .pub-list { display: flex; flex-direction: column; gap: 1px; background: var(--border); border: 1px solid var(--border); border-radius: 10px; overflow: hidden; }
+    .pub-item {
+      background: var(--bg-card);
+      padding: 1.25rem 1.5rem;
+      display: flex;
+      gap: 1rem;
+      align-items: flex-start;
+      transition: background 0.15s;
+    }
+    .pub-item:hover { background: var(--bg-card-hover); }
+    .pub-num {
+      flex-shrink: 0;
+      width: 24px; height: 24px;
+      background: var(--accent-soft);
+      color: var(--accent);
+      border-radius: 5px;
+      font-size: 0.72rem;
+      font-weight: 800;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .pub-body h4 {
+      font-size: 0.875rem;
+      font-weight: 700;
+      color: var(--text-primary);
+      margin-bottom: 0.2rem;
+      line-height: 1.4;
+    }
+    .pub-meta {
+      font-size: 0.78rem;
+      color: var(--text-muted);
+    }
+    .pub-journal { color: var(--link); }
+
+    /* ── Contact ── */
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1px;
+      background: var(--border);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      overflow: hidden;
+    }
+    .contact-block {
+      background: var(--bg-card);
+      padding: 1.75rem;
+    }
+    .contact-block h3 {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--text-primary);
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .contact-row {
+      display: flex;
+      flex-direction: column;
+      gap: 0.65rem;
+    }
+    .contact-item {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      font-size: 0.875rem;
+      color: var(--text-secondary);
+    }
+    .contact-item .icon {
+      font-size: 1rem;
+      width: 20px;
+      text-align: center;
+      flex-shrink: 0;
+    }
+    .hours-row {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.83rem;
+      color: var(--text-secondary);
+      padding: 0.3rem 0;
+      border-bottom: 1px solid var(--divider);
+    }
+    .hours-row:last-child { border-bottom: none; }
+    .hours-row span:last-child { color: var(--text-primary); font-weight: 500; }
+
+    /* ── Footer ── */
+    footer {
+      background: var(--bg-nav);
+      border-top: 1px solid var(--border);
+      padding: 1.5rem 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+    footer a { color: var(--text-muted); }
+    footer a:hover { color: var(--text-secondary); }
+
+    /* ── Responsive ── */
+    @media (max-width: 720px) {
+      .nav-links { display: none; }
+      .about-grid { grid-template-columns: 1fr; }
+      .about-photo { aspect-ratio: 1/1; max-width: 200px; }
+      .contact-grid { grid-template-columns: 1fr; }
+      .stat-bar { flex-wrap: wrap; }
+      .stat-item { min-width: 50%; border-right: none; border-bottom: 1px solid var(--divider); }
+      footer { flex-direction: column; gap: 0.5rem; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ── Navigation ── -->
+  <nav>
+    <div class="nav-brand">
+      <span class="dot"></span>
+      Dr. Javed Khan
+    </div>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#specialisms">Specialisms</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#research">Research</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <div class="nav-right">
+      <div class="theme-toggle" onclick="toggleTheme()" title="Toggle light/dark mode">
+        <span id="theme-icon">☀️</span>
+        <span id="theme-label">Light</span>
+      </div>
+      <a class="btn-contact" href="#contact">Book Appointment</a>
+    </div>
+  </nav>
+
+  <!-- ── Hero ── -->
+  <div class="hero">
+    <div class="hero-badge">Consultant Oncologist · NHS &amp; Private Practice</div>
+    <h1>Dr. Javed Khan</h1>
+    <p class="hero-title">MBBS · MD · FRCP · FRCR · PhD</p>
+    <div class="hero-credentials">
+      <span class="credential-tag">Medical Oncology</span>
+      <span class="credential-tag">Haematological Cancers</span>
+      <span class="credential-tag">Precision Medicine</span>
+      <span class="credential-tag">Clinical Trials</span>
+      <span class="credential-tag">Immunotherapy</span>
+    </div>
+    <p class="hero-desc">
+      Over 20 years of experience in the diagnosis and treatment of complex cancers,
+      with a particular focus on lung, breast, and haematological malignancies.
+      Leading oncologist at Royal Midlands Cancer Centre and Honorary Professor
+      at the University of Birmingham.
+    </p>
+    <div class="hero-actions">
+      <a class="btn-primary" href="#contact">Request Consultation</a>
+      <a class="btn-secondary" href="#research">View Publications</a>
+    </div>
+  </div>
+
+  <!-- ── Stats ── -->
+  <div class="stat-bar">
+    <div class="stat-item">
+      <span class="stat-num">20+</span>
+      <span class="stat-label">Years Experience</span>
+    </div>
+    <div class="stat-item">
+      <span class="stat-num">4,800+</span>
+      <span class="stat-label">Patients Treated</span>
+    </div>
+    <div class="stat-item">
+      <span class="stat-num">62</span>
+      <span class="stat-label">Publications</span>
+    </div>
+    <div class="stat-item">
+      <span class="stat-num">18</span>
+      <span class="stat-label">Clinical Trials Led</span>
+    </div>
+    <div class="stat-item">
+      <span class="stat-num">£4.2M</span>
+      <span class="stat-label">Research Funding</span>
+    </div>
+  </div>
+
+  <!-- ── About ── -->
+  <section id="about">
+    <div class="container">
+      <div class="about-grid">
+        <div class="about-photo">
+          👨‍⚕️
+          <span>Dr. Javed Khan</span>
+        </div>
+        <div class="about-text">
+          <div class="section-label">About</div>
+          <h2>Dedicated to Advancing Cancer Care</h2>
+          <p>
+            Dr. Javed Khan is a Consultant Medical Oncologist at the Royal Midlands Cancer Centre
+            and an Honorary Professor of Oncology at the University of Birmingham. He trained at
+            King's College London Medical School and completed specialist registrar training at
+            The Christie NHS Foundation Trust in Manchester.
+          </p>
+          <p>
+            His clinical practice spans solid tumours and haematological malignancies, with
+            a subspecialty interest in lung cancer, lymphoma, and early-phase immunotherapy trials.
+            He holds a PhD in tumour microenvironment biology and leads the Centre's Precision
+            Oncology Programme.
+          </p>
+          <p>
+            Dr. Khan is committed to a patient-centred approach, ensuring every individual
+            receives a clear, honest explanation of their diagnosis and access to the most
+            current evidence-based treatments — including clinical trial options where appropriate.
+          </p>
+          <div class="about-tags">
+            <span class="tag">GMC Registered: 4820173</span>
+            <span class="tag">Fellow of the Royal College of Physicians</span>
+            <span class="tag">Fellow of the Royal College of Radiologists</span>
+            <span class="tag">ESMO Member</span>
+            <span class="tag">ASCO Member</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Specialisms ── -->
+  <section id="specialisms">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-label">Clinical Expertise</div>
+        <h2>Areas of Specialism</h2>
+        <p>Subspecialty focus across a range of cancer types, with expertise in novel therapeutic approaches.</p>
+      </div>
+      <div class="card-grid">
+        <div class="card">
+          <span class="card-icon">🫁</span>
+          <h3>Lung Cancer</h3>
+          <p>NSCLC and SCLC — targeted therapies (EGFR, ALK, ROS1, KRAS), immunotherapy combinations, and stage III definitive chemoradiotherapy.</p>
+        </div>
+        <div class="card">
+          <span class="card-icon">🩸</span>
+          <h3>Haematological Malignancies</h3>
+          <p>Hodgkin and non-Hodgkin lymphoma, multiple myeloma — including CAR-T cell therapy referral and bispecific antibody trials.</p>
+        </div>
+        <div class="card">
+          <span class="card-icon">🎗️</span>
+          <h3>Breast Cancer</h3>
+          <p>ER+, HER2+, and triple-negative subtypes. Neoadjuvant and adjuvant chemotherapy, CDK4/6 inhibitors, and PARP inhibitors.</p>
+        </div>
+        <div class="card">
+          <span class="card-icon">🧬</span>
+          <h3>Precision Oncology</h3>
+          <p>Tumour molecular profiling (NGS), liquid biopsy-guided treatment selection, and access to molecularly matched early-phase trials.</p>
+        </div>
+        <div class="card">
+          <span class="card-icon">💉</span>
+          <h3>Immunotherapy</h3>
+          <p>PD-1/PD-L1 checkpoint inhibitors, combination immunotherapy regimens, and management of immune-related adverse events (irAEs).</p>
+        </div>
+        <div class="card">
+          <span class="card-icon">🔬</span>
+          <h3>Early-Phase Trials</h3>
+          <p>Principal investigator on Phase I/II trials across multiple tumour types. Access to first-in-human agents for eligible patients.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Services ── -->
+  <section id="services">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-label">Services</div>
+        <h2>What to Expect</h2>
+        <p>Comprehensive oncology care from initial consultation through to long-term follow-up.</p>
+      </div>
+      <div class="card-grid">
+        <div class="card">
+          <span class="card-icon">📋</span>
+          <h3>New Patient Consultation</h3>
+          <p>Thorough review of pathology, imaging, and medical history. A clear diagnosis, staging, and personalised management plan communicated in plain language.</p>
+        </div>
+        <div class="card">
+          <span class="card-icon">🔍</span>
+          <h3>Second Opinion</h3>
+          <p>Independent clinical review of existing diagnoses, treatment plans, or biopsy results. Available to patients currently under the care of another oncologist.</p>
+        </div>
+        <div class="card">
+          <span class="card-icon">🧪</span>
+          <h3>Biomarker Testing</h3>
+          <p>Comprehensive next-generation sequencing (NGS), immunohistochemistry panels, and ctDNA analysis to inform targeted therapy selection.</p>
+        </div>
+        <div class="card">
+          <span class="card-icon">🏥</span>
+          <h3>MDT Coordination</h3>
+          <p>Presentation at weekly multidisciplinary tumour board meetings. Seamless coordination with surgical, radiation, and palliative care colleagues.</p>
+        </div>
+        <div class="card">
+          <span class="card-icon">📱</span>
+          <h3>Remote Follow-Up</h3>
+          <p>Secure video consultations for interim review, results discussion, and symptom assessment — reducing unnecessary travel during treatment.</p>
+        </div>
+        <div class="card">
+          <span class="card-icon">💛</span>
+          <h3>Supportive & Palliative Care</h3>
+          <p>Close collaboration with palliative care teams to optimise symptom management and quality of life throughout all stages of treatment.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Experience ── -->
+  <section id="experience">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-label">Career</div>
+        <h2>Experience &amp; Training</h2>
+      </div>
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="timeline-year">2014 — PRESENT</div>
+          <h3>Consultant Medical Oncologist</h3>
+          <div class="org">Royal Midlands Cancer Centre, Birmingham NHS Trust</div>
+          <p>Lead clinician for thoracic oncology. Director of the Precision Oncology Programme. Honorary Professor, University of Birmingham.</p>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-year">2010 — 2014</div>
+          <h3>Associate Specialist in Medical Oncology</h3>
+          <div class="org">The Christie NHS Foundation Trust, Manchester</div>
+          <p>Specialist registrar training in medical oncology with subspecialty focus in lymphoma and early-phase drug development.</p>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-year">2007 — 2010</div>
+          <h3>PhD — Tumour Microenvironment Biology</h3>
+          <div class="org">University of Manchester / Cancer Research UK</div>
+          <p>Doctoral research examining immunosuppressive mechanisms in the tumour microenvironment. Thesis awarded with no corrections.</p>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-year">2002 — 2007</div>
+          <h3>Core Medical Training &amp; Internal Medicine</h3>
+          <div class="org">King's College Hospital NHS Foundation Trust, London</div>
+          <p>Foundation programme and core medical training. MRCP examination passed 2004. MD thesis awarded 2007.</p>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-year">1996 — 2002</div>
+          <h3>MBBS — Medicine</h3>
+          <div class="org">King's College London School of Medicine</div>
+          <p>Undergraduate medical degree with distinction in clinical sciences. Prize winner in pathology and pharmacology.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Research ── -->
+  <section id="research">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-label">Research</div>
+        <h2>Selected Publications</h2>
+        <p>62 peer-reviewed publications · h-index 24 · 3,400+ citations</p>
+      </div>
+      <div class="pub-list">
+        <div class="pub-item">
+          <div class="pub-num">1</div>
+          <div class="pub-body">
+            <h4>Pembrolizumab plus chemotherapy in EGFR-mutant NSCLC following tyrosine kinase inhibitor progression: a multicentre phase II study</h4>
+            <div class="pub-meta"><span class="pub-journal">Journal of Clinical Oncology</span> · Khan J et al. · 2024 · DOI: 10.1200/JCO.23.02871</div>
+          </div>
+        </div>
+        <div class="pub-item">
+          <div class="pub-num">2</div>
+          <div class="pub-body">
+            <h4>Circulating tumour DNA as a predictive biomarker for immunotherapy response in advanced non-small cell lung cancer</h4>
+            <div class="pub-meta"><span class="pub-journal">Nature Medicine</span> · Khan J, Patel A, Osei-Bonsu E et al. · 2023 · DOI: 10.1038/s41591-023-02190-x</div>
+          </div>
+        </div>
+        <div class="pub-item">
+          <div class="pub-num">3</div>
+          <div class="pub-body">
+            <h4>Regulatory T-cell depletion alters the tumour microenvironment in resectable NSCLC: translational correlates from a window-of-opportunity trial</h4>
+            <div class="pub-meta"><span class="pub-journal">Cancer Cell</span> · Khan J et al. · 2022 · DOI: 10.1016/j.ccell.2022.04.011</div>
+          </div>
+        </div>
+        <div class="pub-item">
+          <div class="pub-num">4</div>
+          <div class="pub-body">
+            <h4>Real-world outcomes of CAR-T cell therapy in relapsed/refractory diffuse large B-cell lymphoma: a UK multicentre analysis</h4>
+            <div class="pub-meta"><span class="pub-journal">Blood</span> · Khan J, Williams G, Nguyen T et al. · 2022 · DOI: 10.1182/blood.2021014902</div>
+          </div>
+        </div>
+        <div class="pub-item">
+          <div class="pub-num">5</div>
+          <div class="pub-body">
+            <h4>CDK4/6 inhibitors in hormone receptor-positive breast cancer: mechanisms of resistance and strategies to overcome</h4>
+            <div class="pub-meta"><span class="pub-journal">Annals of Oncology</span> · Khan J &amp; Patel R · 2021 · DOI: 10.1016/j.annonc.2021.07.018</div>
+          </div>
+        </div>
+        <div class="pub-item">
+          <div class="pub-num">6</div>
+          <div class="pub-body">
+            <h4>Phase I dose-escalation study of XTL-998, a novel PARP-VEGFR dual inhibitor, in advanced solid tumours</h4>
+            <div class="pub-meta"><span class="pub-journal">European Journal of Cancer</span> · Khan J et al. · 2020 · DOI: 10.1016/j.ejca.2020.09.023</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Contact ── -->
+  <section id="contact">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-label">Contact</div>
+        <h2>Referrals &amp; Appointments</h2>
+        <p>Available for NHS referrals and self-pay private consultations. GP referral letters accepted via NHS e-Referral.</p>
+      </div>
+      <div class="contact-grid">
+        <div class="contact-block">
+          <h3>🏥 NHS Clinic — Royal Midlands Cancer Centre</h3>
+          <div class="contact-row">
+            <div class="contact-item"><span class="icon">📍</span> Royal Midlands Cancer Centre, Edgbaston, Birmingham, B15 2GW</div>
+            <div class="contact-item"><span class="icon">📞</span> 0121 627 2000 (Oncology Outpatients)</div>
+            <div class="contact-item"><span class="icon">📠</span> 0121 627 2099 (Referrals &amp; Fax)</div>
+            <div class="contact-item"><span class="icon">✉️</span> <a href="mailto:javed.khan@rmcc.nhs.uk">javed.khan@rmcc.nhs.uk</a></div>
+            <div class="contact-item"><span class="icon">🔗</span> NHS e-Referral: Specialty Code ONC-RMCC-JK</div>
+          </div>
+        </div>
+        <div class="contact-block">
+          <h3>🩺 Private Practice — Priory Medical Suites</h3>
+          <div class="contact-row">
+            <div class="contact-item"><span class="icon">📍</span> Priory Medical Suites, 14 Harborne Road, Birmingham, B15 3AA</div>
+            <div class="contact-item"><span class="icon">📞</span> 0121 455 7800</div>
+            <div class="contact-item"><span class="icon">✉️</span> <a href="mailto:secretary@drjavedkhan.co.uk">secretary@drjavedkhan.co.uk</a></div>
+            <div class="contact-item"><span class="icon">💳</span> All major insurers accepted: AXA, BUPA, Aviva, Cigna, WPA</div>
+          </div>
+        </div>
+        <div class="contact-block">
+          <h3>🕐 Private Clinic Hours</h3>
+          <div>
+            <div class="hours-row"><span>Monday</span><span>09:00 – 17:00</span></div>
+            <div class="hours-row"><span>Tuesday</span><span>13:00 – 18:00</span></div>
+            <div class="hours-row"><span>Wednesday</span><span>Closed</span></div>
+            <div class="hours-row"><span>Thursday</span><span>09:00 – 17:00</span></div>
+            <div class="hours-row"><span>Friday</span><span>09:00 – 13:00</span></div>
+            <div class="hours-row"><span>Weekend</span><span>By arrangement only</span></div>
+          </div>
+        </div>
+        <div class="contact-block">
+          <h3>⚕️ Medical Secretary</h3>
+          <div class="contact-row" style="margin-bottom:1rem;">
+            <div class="contact-item"><span class="icon">👤</span> Ms. Priya Sharma — PA to Dr. Khan</div>
+            <div class="contact-item"><span class="icon">📞</span> 0121 455 7801 (direct line)</div>
+            <div class="contact-item"><span class="icon">✉️</span> <a href="mailto:p.sharma@drjavedkhan.co.uk">p.sharma@drjavedkhan.co.uk</a></div>
+            <div class="contact-item"><span class="icon">⏱️</span> Response within 1 working day</div>
+          </div>
+          <a class="btn-primary" href="mailto:secretary@drjavedkhan.co.uk" style="display:inline-block; margin-top:0.5rem;">
+            Request an Appointment
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Footer ── -->
+  <footer>
+    <div>© 2025 Dr. Javed Khan. All rights reserved. This site is for informational purposes only and does not constitute medical advice.</div>
+    <div style="display:flex; gap:1.25rem;">
+      <a href="#">Privacy Policy</a>
+      <a href="#">Accessibility</a>
+      <a href="https://www.gmc-uk.org" target="_blank">GMC Register</a>
+    </div>
+  </footer>
+
+  <script>
+    function toggleTheme() {
+      const html = document.documentElement;
+      const isDark = html.getAttribute('data-theme') === 'dark';
+      html.setAttribute('data-theme', isDark ? 'light' : 'dark');
+      document.getElementById('theme-icon').textContent  = isDark ? '🌙' : '☀️';
+      document.getElementById('theme-label').textContent = isDark ? 'Dark'  : 'Light';
+    }
+  </script>
+
+</body>
+</html>
