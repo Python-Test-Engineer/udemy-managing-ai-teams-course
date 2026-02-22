@@ -9,8 +9,31 @@ This is the course repository for the Udemy course **"Managing AI Agent Teams"**
 ## Repository Structure
 
 - `.claude/skills/branding/SKILL.md` — A Claude Code skill guide for setting up brand identities and generating branded PPTX/CSS assets
+- `01-WEBSITE/` — Single-page professional website for a fictional oncologist (course project)
 - `COURSE_PROJECTS/MARKETING_DATASET/` — Synthetic 12-month (2024) UK marketing CSV dataset used for course exercises
 - `CMD_CLAUDE.md` / `CMD_GENERALmd` — Command reference notes
+
+## Course Projects
+
+### 01-WEBSITE — Dr. Javed Khan Oncologist Site
+
+`01-WEBSITE/index.html` is a self-contained single-page website (no build step, no dependencies) demonstrating professional web design with Claude Code.
+
+**Style:** Matches the Anthropic/Claude Developer Platform docs aesthetic — dark default background (`#0d0d0d`), warm orange accent (`#e07b39`), card grids with 1px border separators, sticky nav.
+
+**Key features:**
+- Light/dark mode toggle (dark default) via CSS custom properties on `data-theme` attribute
+- Fully responsive — grids reflow and nav collapses on mobile
+- Sections: hero, stats bar, about, specialisms (6 cards), services (6 cards), experience timeline, publications list, contact (NHS + private), footer
+
+**To open:** Open `01-WEBSITE/index.html` directly in a browser — no server required.
+
+**Planned improvements** (see `01-WEBSITE/README.md` for full list):
+- Replace emoji photo placeholder with a real headshot
+- Add a contact/referral form (Formspree or Netlify Forms)
+- Add `Physician` JSON-LD structured data for Google
+- Appointment booking widget (Calendly embed)
+- Mobile hamburger menu for hidden nav links
 
 ## Commands
 
