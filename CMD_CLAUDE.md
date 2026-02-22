@@ -1,1 +1,8 @@
-Claude commands
+# Claude commands
+
+## /login
+
+## /init
+
+## /model
+
