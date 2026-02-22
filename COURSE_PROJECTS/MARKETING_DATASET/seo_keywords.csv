@@ -1,0 +1,97 @@
+month,keyword,avg_position,impressions,clicks,ctr,keyword_type,search_intent
+2024-01,digital marketing agency,19.4,680,115,0.1691,Non-Brand,Navigational
+2024-02,digital marketing agency,32.5,14492,883,0.0609,Brand,Transactional
+2024-03,digital marketing agency,5.8,5560,906,0.1629,Non-Brand,Informational
+2024-04,digital marketing agency,41.3,3351,135,0.0403,Non-Brand,Transactional
+2024-05,digital marketing agency,40.4,8088,736,0.091,Non-Brand,Informational
+2024-06,digital marketing agency,19.9,10541,1521,0.1443,Non-Brand,Informational
+2024-07,digital marketing agency,28.6,1152,65,0.0564,Non-Brand,Informational
+2024-08,digital marketing agency,22.1,12946,349,0.027,Non-Brand,Informational
+2024-09,digital marketing agency,44.9,12620,1186,0.094,Brand,Informational
+2024-10,digital marketing agency,14.5,3149,503,0.1597,Non-Brand,Transactional
+2024-11,digital marketing agency,11.0,4960,700,0.1411,Brand,Navigational
+2024-12,digital marketing agency,8.8,4395,364,0.0828,Non-Brand,Informational
+2024-01,seo services uk,23.3,6136,327,0.0533,Brand,Informational
+2024-02,seo services uk,17.1,4754,480,0.101,Brand,Navigational
+2024-03,seo services uk,38.1,2483,260,0.1047,Brand,Navigational
+2024-04,seo services uk,31.4,3007,293,0.0974,Non-Brand,Informational
+2024-05,seo services uk,29.9,14699,155,0.0105,Non-Brand,Informational
+2024-06,seo services uk,23.3,5389,865,0.1605,Non-Brand,Transactional
+2024-07,seo services uk,42.5,3028,231,0.0763,Non-Brand,Informational
+2024-08,seo services uk,15.5,9054,115,0.0127,Brand,Transactional
+2024-09,seo services uk,35.5,7415,172,0.0232,Non-Brand,Informational
+2024-10,seo services uk,14.8,12773,1506,0.1179,Brand,Navigational
+2024-11,seo services uk,11.2,7825,1284,0.1641,Non-Brand,Navigational
+2024-12,seo services uk,10.7,1242,166,0.1337,Brand,Transactional
+2024-01,ppc management,34.2,12726,2210,0.1737,Non-Brand,Navigational
+2024-02,ppc management,12.7,6504,581,0.0893,Non-Brand,Informational
+2024-03,ppc management,19.1,13906,2269,0.1632,Brand,Navigational
+2024-04,ppc management,30.2,13292,329,0.0248,Non-Brand,Transactional
+2024-05,ppc management,34.0,8783,1488,0.1694,Brand,Navigational
+2024-06,ppc management,22.2,10588,1144,0.108,Brand,Informational
+2024-07,ppc management,35.3,4966,84,0.0169,Non-Brand,Transactional
+2024-08,ppc management,38.1,8650,116,0.0134,Brand,Navigational
+2024-09,ppc management,19.4,13293,208,0.0156,Brand,Informational
+2024-10,ppc management,32.2,6941,1148,0.1654,Brand,Informational
+2024-11,ppc management,2.7,7504,636,0.0848,Brand,Informational
+2024-12,ppc management,37.1,7329,1059,0.1445,Brand,Transactional
+2024-01,social media marketing,42.1,3154,129,0.0409,Non-Brand,Navigational
+2024-02,social media marketing,41.1,9814,1392,0.1418,Brand,Transactional
+2024-03,social media marketing,21.2,9882,822,0.0832,Brand,Transactional
+2024-04,social media marketing,34.6,10305,1519,0.1474,Brand,Navigational
+2024-05,social media marketing,22.0,3476,279,0.0803,Non-Brand,Transactional
+2024-06,social media marketing,36.9,10597,1355,0.1279,Non-Brand,Navigational
+2024-07,social media marketing,2.5,12735,1856,0.1457,Non-Brand,Informational
+2024-08,social media marketing,38.2,9733,1042,0.1071,Brand,Informational
+2024-09,social media marketing,31.7,1350,162,0.12,Non-Brand,Transactional
+2024-10,social media marketing,34.8,8403,657,0.0782,Non-Brand,Informational
+2024-11,social media marketing,19.2,3486,532,0.1526,Brand,Navigational
+2024-12,social media marketing,34.7,8879,1541,0.1736,Brand,Navigational
+2024-01,content marketing agency,9.8,12238,1331,0.1088,Brand,Transactional
+2024-02,content marketing agency,44.8,12337,2074,0.1681,Non-Brand,Informational
+2024-03,content marketing agency,25.9,6570,426,0.0648,Brand,Informational
+2024-04,content marketing agency,21.7,7134,1180,0.1654,Brand,Transactional
+2024-05,content marketing agency,19.9,12541,1427,0.1138,Brand,Navigational
+2024-06,content marketing agency,27.0,2787,125,0.0449,Brand,Informational
+2024-07,content marketing agency,30.8,3942,258,0.0654,Brand,Informational
+2024-08,content marketing agency,13.8,11738,1335,0.1137,Non-Brand,Navigational
+2024-09,content marketing agency,2.7,6015,243,0.0404,Non-Brand,Transactional
+2024-10,content marketing agency,20.6,528,28,0.053,Brand,Navigational
+2024-11,content marketing agency,11.6,13730,1870,0.1362,Non-Brand,Transactional
+2024-12,content marketing agency,35.7,12269,1577,0.1285,Brand,Navigational
+2024-01,google ads management,33.0,2118,190,0.0897,Brand,Navigational
+2024-02,google ads management,29.1,14330,803,0.056,Brand,Transactional
+2024-03,google ads management,6.5,13303,1326,0.0997,Brand,Informational
+2024-04,google ads management,18.0,12838,2054,0.16,Brand,Transactional
+2024-05,google ads management,23.7,5264,231,0.0439,Non-Brand,Informational
+2024-06,google ads management,6.5,1288,144,0.1118,Brand,Navigational
+2024-07,google ads management,28.9,1116,178,0.1595,Brand,Informational
+2024-08,google ads management,23.8,8321,815,0.0979,Brand,Navigational
+2024-09,google ads management,8.4,2678,102,0.0381,Non-Brand,Transactional
+2024-10,google ads management,9.1,13116,791,0.0603,Non-Brand,Transactional
+2024-11,google ads management,15.7,14224,1739,0.1223,Brand,Navigational
+2024-12,google ads management,7.9,7860,852,0.1084,Non-Brand,Transactional
+2024-01,local seo services,9.5,9879,1159,0.1173,Brand,Informational
+2024-02,local seo services,19.7,531,89,0.1676,Brand,Transactional
+2024-03,local seo services,27.6,13468,2100,0.1559,Brand,Navigational
+2024-04,local seo services,19.2,2420,253,0.1045,Brand,Informational
+2024-05,local seo services,11.9,2240,44,0.0196,Brand,Navigational
+2024-06,local seo services,10.0,13569,745,0.0549,Non-Brand,Informational
+2024-07,local seo services,15.7,9125,1068,0.117,Brand,Transactional
+2024-08,local seo services,12.5,14975,1882,0.1257,Non-Brand,Informational
+2024-09,local seo services,5.0,658,90,0.1368,Brand,Navigational
+2024-10,local seo services,8.6,13215,615,0.0465,Brand,Transactional
+2024-11,local seo services,5.4,13927,2404,0.1726,Non-Brand,Navigational
+2024-12,local seo services,12.3,3148,518,0.1645,Non-Brand,Navigational
+2024-01,marketing consultant,37.3,13939,278,0.0199,Non-Brand,Transactional
+2024-02,marketing consultant,34.6,511,84,0.1644,Non-Brand,Informational
+2024-03,marketing consultant,17.8,2427,339,0.1397,Non-Brand,Informational
+2024-04,marketing consultant,16.8,3723,520,0.1397,Non-Brand,Transactional
+2024-05,marketing consultant,34.3,10648,1582,0.1486,Non-Brand,Navigational
+2024-06,marketing consultant,31.1,14578,2311,0.1585,Non-Brand,Transactional
+2024-07,marketing consultant,25.3,2223,352,0.1583,Non-Brand,Navigational
+2024-08,marketing consultant,12.3,5856,993,0.1696,Non-Brand,Navigational
+2024-09,marketing consultant,8.1,3364,106,0.0315,Non-Brand,Informational
+2024-10,marketing consultant,18.1,12198,1375,0.1127,Non-Brand,Navigational
+2024-11,marketing consultant,27.0,2375,258,0.1086,Non-Brand,Transactional
+2024-12,marketing consultant,40.9,2455,45,0.0183,Non-Brand,Informational
